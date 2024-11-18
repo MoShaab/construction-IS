@@ -6,28 +6,28 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Activity, BarChart3, Bell, Box, DollarSign, HardHat, LayoutDashboard, LineChart, LogOut, Search, Settings, Truck, UserIcon, Warehouse } from 'lucide-react'
 import { useState } from "react"
-import Inventory from "./inventory"
-import Projects from "./projects"
-import Reports from "./reports"
-import Suppliers from "./suppliers"
-import Users from "./users"
+// import Inventory from "./inventory"
+// import Projects from "./projects"
+// import Reports from "./reports"
+// import Suppliers from "./suppliers"
+// import Users from "./users"
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("dashboard")
 
   const renderContent = () => {
     switch (activeSection) {
-      case "inventory":
-        return <Inventory />
-      case "projects":
-        return <Projects />
-      case "reports":
-        return <Reports />
-      case "users":
-        return <Users />
-      case "suppliers":
-        return <Suppliers />
-      default:
+      // case "inventory":
+      //   return <Inventory />
+      // case "projects":
+      //   return <Projects />
+      // case "reports":
+      //   return <Reports />
+      // case "users":
+      //   return <Users />
+      // case "suppliers":
+      //   return <Suppliers />
+       default:
         return (
           <main className="max-w-7xl mx-auto py-8 px-8">
             {/* Overview Cards */}
