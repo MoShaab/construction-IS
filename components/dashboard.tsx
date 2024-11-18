@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Activity, BarChart3, Bell, Box, DollarSign, HardHat, LayoutDashboard, LineChart, LogOut, Search, Settings, Truck, UserIcon, Warehouse } from 'lucide-react'
 import { useState } from "react"
-// import Inventory from "./inventory"
+import Inventory from "./inventory"
 // import Projects from "./projects"
 // import Reports from "./reports"
 // import Suppliers from "./suppliers"
@@ -17,8 +17,8 @@ export default function Dashboard() {
 
   const renderContent = () => {
     switch (activeSection) {
-      // case "inventory":
-      //   return <Inventory />
+      case "inventory":
+         return <Inventory />
       // case "projects":
       //   return <Projects />
       // case "reports":
