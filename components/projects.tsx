@@ -2,8 +2,19 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import  Progress  from "@/components/ui/progress"
 import { Clock, Plus } from "lucide-react"
+
+
+interface Project {
+  id: number;
+  name: string;
+  progress: number;
+  status: string;
+  dueDate: string;
+  team: string[];
+}
+
 
 export default function Projects() {
   const projects = [
