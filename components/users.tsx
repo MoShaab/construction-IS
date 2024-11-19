@@ -6,13 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Plus, Search } from "lucide-react"
 
 export default function Users() {
-  const users = [
-    { id: 1, name: "John Doe", role: "Project Manager", status: "Active", lastActive: "2024-03-20" },
-    { id: 2, name: "Sarah Smith", role: "Site Engineer", status: "Active", lastActive: "2024-03-21" },
-    { id: 3, name: "Mike Johnson", role: "Inventory Manager", status: "Away", lastActive: "2024-03-19" },
-    { id: 4, name: "Emma Wilson", role: "Administrator", status: "Active", lastActive: "2024-03-21" },
-    { id: 5, name: "David Brown", role: "Site Supervisor", status: "Inactive", lastActive: "2024-03-15" },
-  ]
+
 
   return (
     <div className="p-8">

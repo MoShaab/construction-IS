@@ -6,51 +6,10 @@ import  Progress  from "@/components/ui/progress"
 import { Clock, Plus } from "lucide-react"
 
 
-interface Project {
-  id: number;
-  name: string;
-  progress: number;
-  status: string;
-  dueDate: string;
-  team: string[];
-}
 
 
 export default function Projects() {
-  const projects = [
-    {
-      id: 1,
-      name: "City Center Construction",
-      progress: 75,
-      status: "In Progress",
-      dueDate: "2024-05-15",
-      team: ["John D.", "Sarah M.", "Mike R."],
-    },
-    {
-      id: 2,
-      name: "Hospital Renovation",
-      progress: 30,
-      status: "In Progress",
-      dueDate: "2024-08-20",
-      team: ["Emma S.", "David L."],
-    },
-    {
-      id: 3,
-      name: "Bridge Maintenance",
-      progress: 90,
-      status: "Nearly Complete",
-      dueDate: "2024-04-01",
-      team: ["Robert K.", "Lisa M.", "Tom B."],
-    },
-    {
-      id: 4,
-      name: "School Extension",
-      progress: 15,
-      status: "Just Started",
-      dueDate: "2024-12-10",
-      team: ["Anna P.", "James W."],
-    },
-  ]
+
 
   return (
     <div className="p-8">

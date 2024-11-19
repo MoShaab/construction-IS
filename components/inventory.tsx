@@ -6,13 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Package2, Plus, Search } from "lucide-react"
 
 export default function Inventory() {
-  const inventoryItems = [
-    { id: 1, name: "Steel Beams", quantity: 150, unit: "pieces", status: "In Stock", category: "Raw Materials" },
-    { id: 2, name: "Concrete Mix", quantity: 75, unit: "bags", status: "Low Stock", category: "Construction Materials" },
-    { id: 3, name: "Safety Helmets", quantity: 200, unit: "pieces", status: "In Stock", category: "Safety Equipment" },
-    { id: 4, name: "Power Tools Set", quantity: 25, unit: "sets", status: "In Stock", category: "Equipment" },
-    { id: 5, name: "Lumber", quantity: 300, unit: "pieces", status: "In Stock", category: "Raw Materials" },
-  ]
+ 
 
   return (
     <div className="p-8">

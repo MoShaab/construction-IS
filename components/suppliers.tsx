@@ -6,40 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Plus, Search, Star } from "lucide-react"
 
 export default function Suppliers() {
-  const suppliers = [
-    {
-      id: 1,
-      name: "BuildTech Solutions",
-      category: "Construction Materials",
-      rating: 4.8,
-      status: "Active",
-      lastDelivery: "2024-03-18",
-    },
-    {
-      id: 2,
-      name: "Safety First Equipment",
-      category: "Safety Gear",
-      rating: 4.5,
-      status: "Active",
-      lastDelivery: "2024-03-20",
-    },
-    {
-      id: 3,
-      name: "Steel Masters Inc",
-      category: "Raw Materials",
-      rating: 4.2,
-      status: "Active",
-      lastDelivery: "2024-03-15",
-    },
-    {
-      id: 4,
-      name: "Power Tools Pro",
-      category: "Equipment",
-      rating: 4.6,
-      status: "Under Review",
-      lastDelivery: "2024-03-10",
-    },
-  ]
+  
 
   return (
     <div className="p-8">
