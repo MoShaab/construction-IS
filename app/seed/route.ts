@@ -1,8 +1,9 @@
 import bcrypt from 'bcrypt';
 import { db } from '@vercel/postgres';
-import { users, suppliers, inventoryItems, projects } from '../lib/data/placeholder-data';
+import { users, suppliers, inventoryItems, projects } from './placeholder-data';
 
 async function connectToDb() {
+    
     const client = await db.connect();
     return client;
 }
