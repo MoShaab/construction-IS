@@ -32,7 +32,7 @@ export default function Projects({
                   <CardTitle className="text-xl mb-2">{project.name}</CardTitle>
                   <div className="flex items-center text-sm text-gray-500">
                     <Clock className="h-4 w-4 mr-1" />
-                    Due: {project.dueDate}
+                    Due: {project.end_date.toLocaleDateString()}
                   </div>
                 </div>
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${
@@ -55,18 +55,7 @@ export default function Projects({
                   <Progress value={project.progress} className="h-2" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium mb-2">Team Members</div>
-                  <div className="flex -space-x-2">
-                    {project.team.map((member, index) => (
-                      <div
-                        key={index}
-                        className="h-8 w-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-sm font-medium border-2 border-white"
-                        title={member}
-                      >
-                        {member.split(" ")[0][0]}{member.split(" ")[1][0]}
-                      </div>
-                    ))}
-                  </div>
+        
                 </div>
               </div>
             </CardContent>

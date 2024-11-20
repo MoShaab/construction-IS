@@ -99,7 +99,7 @@ const suppliers = [
       status: "In Progress",
       startDate: "2023-12-10",
       endDate: "2024-05-15",
-      team: ["John D.", "Sarah M.", "Mike R."],
+      
     },
     {
       id: 2,
@@ -109,7 +109,7 @@ const suppliers = [
       status: "In Progress",
       startDate: "2023-12-10",
       endDate: "2024-08-20",
-      team: ["Emma S.", "David L."],
+      
     },
     {
       id: 3,
@@ -119,7 +119,7 @@ const suppliers = [
       status: "Nearly Complete",
       startDate: "2023-12-10",
       endDate: "2024-04-01",
-      team: ["Robert K.", "Lisa M.", "Tom B."],
+      
     },
     {
       id: 4,
@@ -129,7 +129,7 @@ const suppliers = [
       status: "Just Started",
       startDate: "2023-12-10",
       endDate: "2024-12-10",
-      team: ["Anna P.", "James W."],
+      
     },
   ];
   

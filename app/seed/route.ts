@@ -102,15 +102,14 @@ async function seedProjects() {
       progress INT NOT NULL,
       status VARCHAR(255) NOT NULL,
       start_date DATE NOT NULL,
-      end_date DATE NOT NULL,
-      team TEXT[] -- Array of text
+      end_date DATE NOT NULL
     );
   `;
 
   const insertedProjects = await Promise.all(
     projects.map((project) =>
       client.sql`
-        INSERT INTO projects (id, name, description, progress, status, start_date, end_date, team)
+        INSERT INTO projects (id, name, description, progress, status, start_date, end_date)
         VALUES (
           ${project.id}, 
           ${project.name}, 
@@ -118,8 +117,8 @@ async function seedProjects() {
           ${project.progress}, 
           ${project.status}, 
           ${project.startDate}, 
-          ${project.endDate}, 
-          ${project.team}::TEXT[] -- Cast the team as a PostgreSQL text array
+          ${project.endDate} 
+          
         )
         ON CONFLICT (id) DO NOTHING;
       `
