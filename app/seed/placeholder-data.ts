@@ -1,41 +1,51 @@
 const users = [
-    {
-        id: '410544b2-4001-4271-9855-fec4b6a6442a',
-        name: "John Doe", role: "Project Manager", status: "Active", lastActive: "2024-03-20",
-        email: 'john@nextmail.com',
-        password: '123456',
-
-    },
-    {
-        id: '410544b2-4001-4271-9055-fec4b6a6442a',
-        name: "Sarah Smith", role: "Site Engineer", status: "Active", lastActive: "2024-03-21" ,
-        email: 'sarah@nextmail.com',
-        password: '123456',
-
-    },
-    {
-        id: '410594b2-4001-4271-9855-fec4b6a6442a',
-        name: "Mike Johnson", role: "Inventory Manager", status: "Away", lastActive: "2024-03-19",
-        email: 'mike@nextmail.com',
-        password: '123456',
-
-    },
-    {
-        id: '410594b2-4001-4271-9855-frt4b6a6442a',
-        name: "Emma Wilson", role: "Administrator", status: "Active", lastActive: "2024-03-21",
-        email: 'ema@nextmail.com',
-        password: '123456',
-
-    },
-    {
-        id: '410594d2-4001-4271-9855-fec4b6a6442a',
-        name: "David Brown", role: "Site Supervisor", status: "Inactive", lastActive: "2024-03-15",
-        email: 'david@nextmail.com',
-        password: '123456',
-
-    },
-
+  {
+    id: '410544b2-4001-4271-9855-fec4b6a6442a',
+    name: "John Doe",
+    role: "Project Manager",
+    status: "Active",
+    lastActive: "2024-03-20",
+    email: 'john@nextmail.com',
+    password: '123456',
+  },
+  {
+    id: '410544b2-4001-4271-9055-fec4b6a6442a',
+    name: "Sarah Smith",
+    role: "Site Engineer",
+    status: "Active",
+    lastActive: "2024-03-21",
+    email: 'sarah@nextmail.com',
+    password: '123456',
+  },
+  {
+    id: '410594b2-4001-4271-9855-fec4b6a6442a',
+    name: "Mike Johnson",
+    role: "Inventory Manager",
+    status: "Away",
+    lastActive: "2024-03-19",
+    email: 'mike@nextmail.com',
+    password: '123456',
+  },
+  {
+    id: '410594b2-4001-4271-9855-8ec4b6a6442a', // Fixed invalid UUID
+    name: "Emma Wilson",
+    role: "Administrator",
+    status: "Active",
+    lastActive: "2024-03-21",
+    email: 'ema@nextmail.com',
+    password: '123456',
+  },
+  {
+    id: '410594d2-4001-4271-9855-fec4b6a6442a',
+    name: "David Brown",
+    role: "Site Supervisor",
+    status: "Inactive",
+    lastActive: "2024-03-15",
+    email: 'david@nextmail.com',
+    password: '123456',
+  },
 ];
+
 
 const suppliers = [
     {

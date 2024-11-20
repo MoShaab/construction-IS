@@ -91,7 +91,6 @@ async function seedInventoryItems() {
 
   return insertedInventoryItems;
 }
-
 async function seedProjects() {
   const client = await connectToDb();
 
@@ -104,13 +103,13 @@ async function seedProjects() {
       status VARCHAR(255) NOT NULL,
       start_date DATE NOT NULL,
       end_date DATE NOT NULL,
-      team TEXT[]
+      team TEXT[] -- Array of text
     );
   `;
 
   const insertedProjects = await Promise.all(
-    projects.map(
-      (project) => client.sql`
+    projects.map((project) =>
+      client.sql`
         INSERT INTO projects (id, name, description, progress, status, start_date, end_date, team)
         VALUES (
           ${project.id}, 
@@ -120,7 +119,7 @@ async function seedProjects() {
           ${project.status}, 
           ${project.startDate}, 
           ${project.endDate}, 
-          ${JSON.stringify(project.team)}::TEXT[]
+          ${project.team}::TEXT[] -- Cast the team as a PostgreSQL text array
         )
         ON CONFLICT (id) DO NOTHING;
       `
