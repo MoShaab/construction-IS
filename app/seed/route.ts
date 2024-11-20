@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import { db } from '@vercel/postgres';
 import { users, suppliers, inventoryItems, projects } from './placeholder-data';
+import { NextResponse } from 'next/server';
 
 async function connectToDb() {
   const client = await db.connect();
@@ -146,9 +147,12 @@ export async function GET() {
   } catch (error) {
     const client = await connectToDb();
     await client.sql`ROLLBACK`;
-    return new Response(
-      JSON.stringify({ error: error.message || 'Database seeding failed' }),
-      { status: 500 }
-    );
+
+    const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
+
+  } finally {
+    const client = await connectToDb();
+    client.release();
   }
 }
