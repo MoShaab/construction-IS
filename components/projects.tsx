@@ -4,13 +4,16 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import  Progress  from "@/components/ui/progress"
 import { Clock, Plus } from "lucide-react"
+import { Project } from "@/lib/definitions"
 
 
 
 
 export default function Projects({
-
-  projects}) {
+  projects,
+}:{
+  projects: Project[];
+}) {
 
 
   return (
@@ -32,7 +35,7 @@ export default function Projects({
                   <CardTitle className="text-xl mb-2">{project.name}</CardTitle>
                   <div className="flex items-center text-sm text-gray-500">
                     <Clock className="h-4 w-4 mr-1" />
-                    Due: {project.end_date.toLocaleDateString()}
+                    Due: {new Date(project.endDate).toLocaleDateString()}
                   </div>
                 </div>
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${

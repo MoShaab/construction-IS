@@ -4,10 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Plus, Search } from "lucide-react"
+import { User } from "@/lib/definitions"
 
 export default function Users({
-
-  users}) {
+  users,
+}:{
+  users: User[];
+}) {
 
 
   return (
@@ -65,7 +68,7 @@ export default function Users({
                         {user.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.lastActive}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{new Date (user.lastActive).toLocaleDateString()}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <Button variant="ghost" className="text-blue-600 hover:text-blue-900">Edit</Button>
                     </td>

@@ -11,9 +11,13 @@ import Projects from "./projects"
 import Reports from "./reports"
 import Suppliers from "./suppliers"
 import Users from "./users"
-
-export default function Dashboard({ allInventory, projects, suppliers, users }) {
+import { DashboardProps } from "@/lib/definitions";
+export default function Dashboard({ allInventory, projects, suppliers, users }: DashboardProps) {
  
+  console.log('inventory:', allInventory);
+  // console.log('projects:', projects);
+  // console.log('supppliers:', suppliers);
+  // console.log('users:', users);
 
   const [activeSection, setActiveSection] = useState("dashboard")
 

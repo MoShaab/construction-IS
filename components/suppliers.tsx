@@ -4,10 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Plus, Search, Star } from "lucide-react"
+import { Supplier } from "@/lib/definitions"
 
 export default function Suppliers({
-
-  suppliers}) {
+  suppliers,
+}:{
+  suppliers: Supplier[];
+}) {
   
 
   return (
