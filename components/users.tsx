@@ -12,12 +12,11 @@ export default function Users({
   users: User[];
 }) {
 
-
   return (
-    <div className="p-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">User Management</h1>
-        <Button>
+    <div className="p-4 sm:p-8">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold mb-4 sm:mb-0">User Management</h1>
+        <Button className="w-full sm:w-auto">
           <Plus className="h-4 w-4 mr-2" />
           Add User
         </Button>
@@ -25,16 +24,16 @@ export default function Users({
 
       <Card>
         <CardHeader>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-center">
             <CardTitle>System Users</CardTitle>
-            <div className="relative w-64">
+            <div className="relative w-full sm:w-64 mt-4 sm:mt-0">
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
-              <Input type="search" placeholder="Search users..." className="pl-9" />
+              <Input type="search" placeholder="Search users..." className="pl-9 w-full" />
             </div>
           </div>
         </CardHeader>
         <CardContent>
-          <div className="rounded-md border">
+          <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
