@@ -1,4 +1,3 @@
-
 'use client';
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -12,12 +11,8 @@ import Reports from "./reports"
 import Suppliers from "./suppliers"
 import Users from "./users"
 import { DashboardProps } from "@/lib/definitions";
+
 export default function Dashboard({ allInventory, projects, suppliers, users }: DashboardProps) {
- 
-  console.log('inventory:', allInventory);
-  // console.log('projects:', projects);
-  // console.log('supppliers:', suppliers);
-  // console.log('users:', users);
 
   const [activeSection, setActiveSection] = useState("dashboard")
 
@@ -129,7 +124,7 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
   return (
     <div className="flex h-screen bg-[#f8fafc]">
       {/* Sidebar */}
-      <div className="w-64 bg-white border-r border-gray-200">
+      <div className="fixed sm:static top-0 left-0 z-40 w-full sm:w-64 bg-white border-r border-gray-200 sm:transform-none transform transition-all">
         <div className="p-6">
           <div className="flex items-center gap-2">
             <HardHat className="h-8 w-8 text-blue-600" />
@@ -138,7 +133,7 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
         </div>
         <nav className="mt-2">
           <div className="px-3">
-            {[
+            {[ 
               { icon: <LayoutDashboard className="h-4 w-4" />, label: "Dashboard", value: "dashboard" },
               { icon: <Warehouse className="h-4 w-4" />, label: "Inventory", value: "inventory" },
               { icon: <Activity className="h-4 w-4" />, label: "Projects", value: "projects" },
@@ -157,7 +152,7 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
               </Button>
             ))}
           </div>
-          <div className="absolute bottom-4 px-3 w-64">
+          <div className="bsolute bottom-4 px-3 w-full sm:w-64">
             <hr className="my-4" />
             <Button variant="ghost" className="w-full justify-start">
               <Settings className="h-4 w-4 mr-2" />
@@ -165,33 +160,13 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
             </Button>
             <Button variant="ghost" className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50">
               <LogOut className="h-4 w-4 mr-2" />
-              Logout
+              Log Out
             </Button>
           </div>
         </nav>
       </div>
-
       {/* Main Content */}
-      <div className="flex-1 overflow-auto">
-        <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-          <div className="max-w-7xl mx-auto py-4 px-8 flex justify-between items-center">
-            <h2 className="text-2xl font-bold text-gray-900">{activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}</h2>
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
-                <Input type="search" placeholder="Search..." className="pl-9 w-64" />
-              </div>
-              <Button variant="outline" size="icon" className="relative">
-                <Bell className="h-4 w-4" />
-                <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center">3</span>
-              </Button>
-              <div className="h-8 w-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold">
-                JD
-              </div>
-            </div>
-          </div>
-        </header>
-
+      <div className="flex-1 overflow-y-auto p-8">
         {renderContent()}
       </div>
     </div>
