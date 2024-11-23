@@ -9,6 +9,8 @@ export default function Inventory({
 }:{
   allInventory: InventoryItem[];
 }) {
+  const uniqueCategories = new Set(allInventory.map(item => item.category)).size;
+  const lowStockCount = allInventory.filter(item => item.status === "Low Stock").length;
   return (
     <div className="p-4 sm:p-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
@@ -26,7 +28,7 @@ export default function Inventory({
             <Package2 className="h-4 w-4 text-blue-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">750</div>
+            <div className="text-2xl font-bold">{allInventory.length}</div>
           </CardContent>
         </Card>
         <Card>
@@ -35,7 +37,7 @@ export default function Inventory({
             <Package2 className="h-4 w-4 text-blue-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">8</div>
+            <div className="text-2xl font-bold">{uniqueCategories}</div>
           </CardContent>
         </Card>
         <Card>
@@ -44,7 +46,7 @@ export default function Inventory({
             <Package2 className="h-4 w-4 text-orange-500" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">12</div>
+            <div className="text-2xl font-bold">{lowStockCount}</div>
           </CardContent>
         </Card>
       </div>

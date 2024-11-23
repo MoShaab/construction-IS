@@ -13,9 +13,10 @@ import Users from "./users"
 import { DashboardProps } from "@/lib/definitions";
 
 export default function Dashboard({ allInventory, projects, suppliers, users }: DashboardProps) {
-  //hello
   const [activeSection, setActiveSection] = useState("dashboard")
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
+  const lowStockCount = allInventory.filter(item => item.status === "Low Stock").length;
+  const activeProjects = projects.length;
 
   const renderContent = () => {
     switch (activeSection) {
@@ -33,9 +34,12 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
         return (
           <main className="max-w-7xl mx-auto py-8 px-8">
             {/* Overview Cards */}
+            <h1 className="text-xl lg:text-3xl font-bold mb-10 sm:mb-0">Dashboard</h1>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+           
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  
                   <CardTitle className="text-sm font-medium">Total Inventory Value</CardTitle>
                   <DollarSign className="h-4 w-4 text-blue-600" />
                 </CardHeader>
@@ -52,7 +56,7 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
                   <Box className="h-4 w-4 text-blue-600" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">12</div>
+                  <div className="text-2xl font-bold">{activeProjects}</div>
                   <p className="text-xs text-emerald-500 flex items-center gap-1 mt-1">
                     <span className="text-lg">↑</span> 2 new this week
                   </p>
@@ -64,7 +68,7 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
                   <Bell className="h-4 w-4 text-orange-500" />
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold">7</div>
+                  <div className="text-2xl font-bold">{lowStockCount}</div>
                   <p className="text-xs text-orange-500 flex items-center gap-1 mt-1">
                     <span className="text-lg">⚠</span> Requires attention
                   </p>
