@@ -13,6 +13,7 @@ import Users from "./users"
 import { DashboardProps } from "@/lib/definitions";
 
 export default function Dashboard({ allInventory, projects, suppliers, users }: DashboardProps) {
+  //hello
   const [activeSection, setActiveSection] = useState("dashboard")
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
 
