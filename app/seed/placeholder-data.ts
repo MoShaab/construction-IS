@@ -83,11 +83,11 @@ const suppliers = [
   ];
 
   const inventoryItems = [
-    { id: 1, name: "Steel Beams", quantity: 150, unit: "pieces", status: "In Stock", category: "Raw Materials" },
-    { id: 2, name: "Concrete Mix", quantity: 75, unit: "bags", status: "Low Stock", category: "Construction Materials" },
-    { id: 3, name: "Safety Helmets", quantity: 200, unit: "pieces", status: "In Stock", category: "Safety Equipment" },
-    { id: 4, name: "Power Tools Set", quantity: 25, unit: "sets", status: "In Stock", category: "Equipment" },
-    { id: 5, name: "Lumber", quantity: 300, unit: "pieces", status: "In Stock", category: "Raw Materials" },
+    { id: 1, name: "Steel Beams", quantity: 150, unit: "pieces", minThreshold: 50, maxThreshold: 200, category: "Raw Materials" },
+    { id: 2, name: "Concrete Mix", quantity: 75, unit: "bags",  minThreshold: 10, maxThreshold: 100, category: "Construction Materials" },
+    { id: 3, name: "Safety Helmets", quantity: 200, unit: "pieces",  minThreshold: 20, maxThreshold: 250, category: "Safety Equipment" },
+    { id: 4, name: "Power Tools Set", quantity: 25, unit: "sets",  minThreshold: 10, maxThreshold: 30, category: "Equipment" },
+    { id: 5, name: "Lumber", quantity: 300, unit: "pieces",  minThreshold: 100, maxThreshold: 400, category: "Raw Materials" },
   ];
 
   const projects = [
@@ -95,40 +95,36 @@ const suppliers = [
       id: 1,
       name: "City Center Construction",
       description: "Building a smart home system",
-      progress: 75,
-      status: "In Progress",
-      startDate: "2023-12-10",
-      endDate: "2024-05-15",
+      
+      startDate: "2023-03-10",
+      endDate: "2025-05-15",
       
     },
     {
       id: 2,
       name: "Hospital Renovation",
       description: "Building a smart home system",
-      progress: 30,
-      status: "In Progress",
+      
       startDate: "2023-12-10",
-      endDate: "2024-08-20",
+      endDate: "2025-01-20",
       
     },
     {
       id: 3,
       name: "Bridge Maintenance",
       description: "Building a smart home system",
-      progress: 90,
-      status: "Nearly Complete",
+      
       startDate: "2023-12-10",
-      endDate: "2024-04-01",
+      endDate: "2025-12-01",
       
     },
     {
       id: 4,
       name: "School Extension",
       description: "Building a smart home system",
-      progress: 15,
-      status: "Just Started",
+      
       startDate: "2023-12-10",
-      endDate: "2024-12-10",
+      endDate: "2024-11-10",
       
     },
   ];

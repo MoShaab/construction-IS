@@ -15,7 +15,8 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
         name: row.name,
         quantity: row.quantity,
         unit: row.unit,
-        status: row.status,
+        minThreshold: row.minThreshold,
+        maxThreshold: row.maxThreshold,
         category: row.category,
       }));
   
@@ -70,8 +71,7 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
         id: row.id,
         name: row.name,
         description: row.description,
-        progress: row.progress,
-        status: row.status,
+        
         startDate: row.start_date,
         endDate: row.end_date,
       }));

@@ -74,7 +74,8 @@ async function seedInventoryItems() {
       name VARCHAR(255) NOT NULL,
       quantity INT NOT NULL,
       unit VARCHAR(50) NOT NULL,
-      status VARCHAR(255) NOT NULL,
+      minThreshold INT NOT NULL,
+      maxThreshold INT NOT NULL,
       category VARCHAR(255) NOT NULL
     );
   `;
@@ -82,8 +83,8 @@ async function seedInventoryItems() {
   const insertedInventoryItems = await Promise.all(
     inventoryItems.map(
       (item) => client.sql`
-        INSERT INTO inventory_items (id, name, quantity, unit, status, category)
-        VALUES (${item.id}, ${item.name}, ${item.quantity}, ${item.unit}, ${item.status}, ${item.category})
+        INSERT INTO inventory_items (id, name, quantity, unit, minThreshold, maxThreshold, category)
+        VALUES (${item.id}, ${item.name}, ${item.quantity}, ${item.unit}, ${item.minThreshold}, ${item.maxThreshold}, ${item.category})
         ON CONFLICT (id) DO NOTHING;
       `
     )
@@ -99,8 +100,6 @@ async function seedProjects() {
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       description TEXT NOT NULL,
-      progress INT NOT NULL,
-      status VARCHAR(255) NOT NULL,
       start_date DATE NOT NULL,
       end_date DATE NOT NULL
     );
@@ -109,13 +108,12 @@ async function seedProjects() {
   const insertedProjects = await Promise.all(
     projects.map((project) =>
       client.sql`
-        INSERT INTO projects (id, name, description, progress, status, start_date, end_date)
+        INSERT INTO projects (id, name, description, start_date, end_date)
         VALUES (
           ${project.id}, 
           ${project.name}, 
           ${project.description}, 
-          ${project.progress}, 
-          ${project.status}, 
+          
           ${project.startDate}, 
           ${project.endDate} 
           
