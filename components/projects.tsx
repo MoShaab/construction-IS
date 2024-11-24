@@ -4,13 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Progress from "@/components/ui/progress"
 import { Clock, Plus } from "lucide-react"
+import { Project } from "@/lib/definitions"
 
-interface Project {
-  id: string
-  name: string
-  startDate: string
-  endDate: string
-}
 
 // Function to calculate progress percentage based on start and end dates
 const calculateProgress = (startDate: Date, endDate: Date): number => {
