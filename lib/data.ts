@@ -71,8 +71,7 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
         id: row.id,
         name: row.name,
         description: row.description,
-        progress: row.progress,
-        status: row.status,
+       
         startDate: row.start_date,
         endDate: row.end_date,
       }));

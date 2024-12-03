@@ -83,11 +83,11 @@ const suppliers = [
   ];
 
   const inventoryItems = [
-    { id: 1, name: "Steel Beams", quantity: 80, unit: "pieces", status: "In Stock", category: "Raw Materials", minThreshold: 100  },
-    { id: 2, name: "Concrete Mix", quantity: 75, unit: "bags", status: "Low Stock", category: "Construction Materials" , minThreshold: 50 },
-    { id: 3, name: "Safety Helmets", quantity: 50, unit: "pieces", status: "In Stock", category: "Safety Equipment" , minThreshold: 100 },
-    { id: 4, name: "Power Tools Set", quantity: 25, unit: "sets", status: "In Stock", category: "Equipment" , minThreshold: 10 },
-    { id: 5, name: "Lumber", quantity: 300, unit: "pieces", status: "In Stock", category: "Raw Materials" , minThreshold: 250 },
+    { id: 1, name: "Steel Beams", quantity: 80, unit: "pieces", category: "Raw Materials", minThreshold: 100  },
+    { id: 2, name: "Concrete Mix", quantity: 75, unit: "bags", category: "Construction Materials" , minThreshold: 50 },
+    { id: 3, name: "Safety Helmets", quantity: 0, unit: "pieces",  category: "Safety Equipment" , minThreshold: 100 },
+    { id: 4, name: "Power Tools Set", quantity: 25, unit: "sets", category: "Equipment" , minThreshold: 10 },
+    { id: 5, name: "Lumber", quantity: 300, unit: "pieces",  category: "Raw Materials" , minThreshold: 250 },
   ];
 
   const projects = [
@@ -95,8 +95,8 @@ const suppliers = [
       id: 1,
       name: "City Center Construction",
       description: "Building a smart home system",
-      progress: 75,
-      status: "In Progress",
+     
+      
       startDate: "2023-12-10",
       endDate: "2024-05-15",
       
@@ -105,8 +105,8 @@ const suppliers = [
       id: 2,
       name: "Hospital Renovation",
       description: "Building a smart home system",
-      progress: 30,
-      status: "In Progress",
+     
+      
       startDate: "2023-12-10",
       endDate: "2024-08-20",
       
@@ -115,8 +115,8 @@ const suppliers = [
       id: 3,
       name: "Bridge Maintenance",
       description: "Building a smart home system",
-      progress: 90,
-      status: "Nearly Complete",
+      
+      
       startDate: "2023-12-10",
       endDate: "2024-04-01",
       
@@ -125,8 +125,8 @@ const suppliers = [
       id: 4,
       name: "School Extension",
       description: "Building a smart home system",
-      progress: 15,
-      status: "Just Started",
+    
+      
       startDate: "2023-12-10",
       endDate: "2024-12-10",
       

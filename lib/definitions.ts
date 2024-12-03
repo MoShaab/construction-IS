@@ -22,7 +22,7 @@ export type User = {
     name: string;
     quantity: number;
     unit: string; // e.g., "pieces", "bags", "sets"
-    status: "In Stock" | "Low Stock";
+    
     category: string;
     minThreshold: number;
     
@@ -32,8 +32,8 @@ export type User = {
     id: number;
     name: string;
     description: string;
-    progress: number; // Progress as a percentage
-    status: "In Progress" | "Nearly Complete" | "Just Started";
+  
+    
     startDate: string; // ISO date string
     endDate: string; // ISO date string
   };
