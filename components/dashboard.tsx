@@ -11,11 +11,49 @@ import Reports from "./reports"
 import Suppliers from "./suppliers"
 import Users from "./users"
 import { DashboardProps } from "@/lib/definitions";
+import { InventoryItem } from "@/lib/definitions";
+
+
+// Function to calculate status based on quantity and thresholds
+
+const calculateStatus = (item: InventoryItem): {
+  status: string,
+  style: string
+} => {
+  const minThreshold = item.minThreshold // Default minimum threshold
+  const maxThreshold = item.maxThreshold // Default maximum threshold
+
+  if (item.quantity <= 0) {
+    return {
+      status: "Out of Stock",
+      style: "bg-red-100 text-red-800"
+    }
+  }
+  if (item.quantity <= minThreshold) {
+    return {
+      status: "Low Stock",
+      style: "bg-orange-100 text-orange-800"
+    }
+  }
+  if (item.quantity >= maxThreshold) {
+    return {
+      status: "Overstock",
+      style: "bg-yellow-100 text-yellow-800"
+    }
+  }
+  return {
+    status: "In Stock",
+    style: "bg-green-100 text-green-800"
+  }
+}
 
 export default function Dashboard({ allInventory, projects, suppliers, users }: DashboardProps) {
   const [activeSection, setActiveSection] = useState("dashboard")
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false)
-  const lowStockCount = allInventory.filter(item => item.status === "Low Stock").length;
+  const lowStockCount = allInventory.filter(item => 
+    calculateStatus(item).status === "Low Stock" || 
+    calculateStatus(item).status === "Out of Stock"
+  ).length;
   const activeProjects = projects.length;
 
   const renderContent = () => {
@@ -33,7 +71,7 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
        default:
         return (
           <main className="max-w-7xl mx-auto py-8 px-8">
-            {/* Cards for overview analytics */}
+            {/* Overview Cards */}
             <h1 className="text-xl lg:text-3xl font-bold mb-10 sm:mb-0">Dashboard</h1>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
            
