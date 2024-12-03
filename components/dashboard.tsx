@@ -67,12 +67,7 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
                   <CardTitle className="text-sm font-medium">Low Stock Items</CardTitle>
                   <Bell className="h-4 w-4 text-orange-500" />
                 </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">{lowStockCount}</div>
-                  <p className="text-xs text-orange-500 flex items-center gap-1 mt-1">
-                    <span className="text-lg">⚠</span> Requires attention
-                  </p>
-                </CardContent>
+                
               </Card>
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
