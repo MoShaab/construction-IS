@@ -17,6 +17,7 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
         unit: row.unit,
         status: row.status,
         category: row.category,
+        minThreshold: row.minThreshold
       }));
   
       // Return the properties directly

@@ -1,8 +1,39 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Package2, Plus, Search } from "lucide-react"
 import { InventoryItem } from "@/lib/definitions"
+
+
+
+// Function to calculate status based on quantity and thresholds
+const calculateStatus = (item: InventoryItem): {
+  status: string,
+  style: string
+} => {
+  const minThreshold = item.minThreshold // Default minimum threshold
+
+
+  if (item.quantity <= 0) {
+    return {
+      status: "Out of Stock",
+      style: "bg-red-100 text-red-800"
+    }
+  }
+  if (item.quantity <= minThreshold) {
+    return {
+      status: "Low Stock",
+      style: "bg-orange-100 text-orange-800"
+    }
+  }
+  
+  return {
+    status: "In Stock",
+    style: "bg-green-100 text-green-800"
+  }
+}
 
 export default function Inventory({
   allInventory,
@@ -10,7 +41,11 @@ export default function Inventory({
   allInventory: InventoryItem[];
 }) {
   const uniqueCategories = new Set(allInventory.map(item => item.category)).size;
-  const lowStockCount = allInventory.filter(item => item.status === "Low Stock").length;
+  const lowStockCount = allInventory.filter(item => 
+    calculateStatus(item).status === "Low Stock" || 
+    calculateStatus(item).status === "Out of Stock"
+  ).length;
+
   return (
     <div className="p-4 sm:p-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
@@ -73,20 +108,21 @@ export default function Inventory({
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {allInventory.map((item) => (
-                  <tr key={item.id} className="hover:bg-gray-50">
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap">{item.name}</td>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap">{item.quantity} {item.unit}</td>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap">
-                      <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                        item.status === "Low Stock" ? "bg-orange-100 text-orange-800" : "bg-green-100 text-green-800"
-                      }`}>
-                        {item.status}
-                      </span>
-                    </td>
-                    <td className="px-4 sm:px-6 py-4 whitespace-nowrap">{item.category}</td>
-                  </tr>
-                ))}
+                {allInventory.map((item) => {
+                  const { status, style } = calculateStatus(item)
+                  return (
+                    <tr key={item.id} className="hover:bg-gray-50">
+                      <td className="px-4 sm:px-6 py-4 whitespace-nowrap">{item.name}</td>
+                      <td className="px-4 sm:px-6 py-4 whitespace-nowrap">{item.quantity} {item.unit}</td>
+                      <td className="px-4 sm:px-6 py-4 whitespace-nowrap">
+                        <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${style}`}>
+                          {status}
+                        </span>
+                      </td>
+                      <td className="px-4 sm:px-6 py-4 whitespace-nowrap">{item.category}</td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>

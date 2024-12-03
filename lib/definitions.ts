@@ -24,6 +24,8 @@ export type User = {
     unit: string; // e.g., "pieces", "bags", "sets"
     status: "In Stock" | "Low Stock";
     category: string;
+    minThreshold: number;
+    
   };
   
   export type Project = {

@@ -75,15 +75,16 @@ async function seedInventoryItems() {
       quantity INT NOT NULL,
       unit VARCHAR(50) NOT NULL,
       status VARCHAR(255) NOT NULL,
-      category VARCHAR(255) NOT NULL
+      category VARCHAR(255) NOT NULL,
+      minThreshold INT NOT NULL
     );
   `;
 
   const insertedInventoryItems = await Promise.all(
     inventoryItems.map(
       (item) => client.sql`
-        INSERT INTO inventory_items (id, name, quantity, unit, status, category)
-        VALUES (${item.id}, ${item.name}, ${item.quantity}, ${item.unit}, ${item.status}, ${item.category})
+        INSERT INTO inventory_items (id, name, quantity, unit, status, category, minThreshold)
+        VALUES (${item.id}, ${item.name}, ${item.quantity}, ${item.unit}, ${item.status}, ${item.category}, ${item.minThreshold})
         ON CONFLICT (id) DO NOTHING;
       `
     )
