@@ -33,7 +33,7 @@ export default function Dashboard({ allInventory, projects, suppliers, users }: 
        default:
         return (
           <main className="max-w-7xl mx-auto py-8 px-8">
-            {/* Overview Cards */}
+            {/* Cards for overview analytics */}
             <h1 className="text-xl lg:text-3xl font-bold mb-10 sm:mb-0">Dashboard</h1>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
            
