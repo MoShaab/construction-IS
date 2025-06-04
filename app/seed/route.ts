@@ -17,8 +17,6 @@ async function seedUsers() {
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       role VARCHAR(255) NOT NULL,
-      status VARCHAR(255) NOT NULL,
-      last_active DATE NOT NULL,
       email TEXT NOT NULL UNIQUE,
       password TEXT NOT NULL
     );
@@ -28,8 +26,8 @@ async function seedUsers() {
     users.map(async (user) => {
       const hashedPassword = await bcrypt.hash(user.password, 10);
       return client.sql`
-        INSERT INTO site_users (id, name, role, status, last_active, email, password)
-        VALUES (${user.id}, ${user.name}, ${user.role}, ${user.status}, ${user.lastActive}, ${user.email}, ${hashedPassword})
+        INSERT INTO site_users (id, name, role, email, password)
+        VALUES (${user.id}, ${user.name}, ${user.role}, ${user.email}, ${hashedPassword})
         ON CONFLICT (id) DO NOTHING;
       `;
     })
@@ -46,17 +44,16 @@ async function seedSuppliers() {
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
       category VARCHAR(255) NOT NULL,
-      rating FLOAT NOT NULL,
-      status VARCHAR(255) NOT NULL,
-      last_delivery DATE NOT NULL
+      contact VARCHAR(255) NOT NULL,
+      location VARCHAR(255) NOT NULL,
     );
   `;
 
   const insertedSuppliers = await Promise.all(
     suppliers.map(
       (supplier) => client.sql`
-        INSERT INTO suppliers (id, name, category, rating, status, last_delivery)
-        VALUES (${supplier.id}, ${supplier.name}, ${supplier.category}, ${supplier.rating}, ${supplier.status}, ${supplier.lastDelivery})
+        INSERT INTO suppliers (id, name, category, contact, location)
+        VALUES (${supplier.id}, ${supplier.name}, ${supplier.category}, ${supplier.contact}, ${supplier.location})
         ON CONFLICT (id) DO NOTHING;
       `
     )

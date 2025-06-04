@@ -1,20 +1,23 @@
 export type User = {
-    id: string;
-    name: string;
-    role: string;
-    status: "Active" | "Away" | "Inactive";
-    lastActive: string; // ISO date string
-    email: string;
-    password: string;
-  };
+  id: string;
+  name: string;
+  role: string; // E.g., "Admin", "User", "Manager"
+  email: string;
+  password: string; // Encrypted before storage
+  last_active: Date;
+};
+
   
   export type Supplier = {
     id: number;
     name: string;
     category: string;
-    rating: number; // Rating is between 0 and 5
-    status: "Active" | "Under Review";
-    lastDelivery: string; // ISO date string
+    phone: string;
+    email?: string;
+    address?: string; // Optional supplier location
+    rating: string;
+    status: string;
+    last_delivery: Date;
   };
   
   export type InventoryItem = {
@@ -22,7 +25,6 @@ export type User = {
     name: string;
     quantity: number;
     unit: string; // e.g., "pieces", "bags", "sets"
-    
     category: string;
     minThreshold: number;
     
@@ -32,10 +34,8 @@ export type User = {
     id: number;
     name: string;
     description: string;
-  
-    
-    startDate: string; // ISO date string
-    endDate: string; // ISO date string
+    start_date: string; // ISO date string
+    end_date: string; // ISO date string
   };
 
   export interface DashboardProps {

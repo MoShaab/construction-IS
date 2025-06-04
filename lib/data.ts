@@ -10,17 +10,16 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
       const result = await sql`SELECT * FROM inventory_items
     
       `;
-      const inventory: InventoryItem[] = result.rows.map(row => ({
+      const inventory: InventoryItem[] = result.rows.map((row:InventoryItem)=> ({
         id: row.id,
         name: row.name,
         quantity: row.quantity,
         unit: row.unit,
-        status: row.status,
         category: row.category,
         minThreshold: row.minThreshold
       }));
   
-      // Return the properties directly
+      // Return the inventory items directly
       return inventory;
     } 
     catch (error) {
@@ -41,10 +40,13 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
   
       // Return the suppliers directly
 
-          const suppliers: Supplier[] = result.rows.map(row => ({
+          const suppliers: Supplier[] = result.rows.map((row:Supplier) => ({
       id: row.id,
       name: row.name,
       category: row.category,
+      phone: row.phone,
+      email: row.email,
+      address: row.address,
       rating: row.rating,
       status: row.status,
       lastDelivery: row.last_delivery,
@@ -67,7 +69,7 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
       const result = await sql`SELECT * FROM projects
     
       `;
-      const projects: Project[] = result.rows.map(row => ({
+      const projects: Project[] = result.rows.map((row: Project) => ({
         id: row.id,
         name: row.name,
         description: row.description,
@@ -98,11 +100,10 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
       `;
   
       // Return the users directly
-      const users: User[] = result.rows.map(row => ({
+      const users: User[] = result.rows.map((row: User) => ({
         id: row.id,
         name: row.name,
         role: row.role,
-        status: row.status,
         lastActive: row.last_active,
         email: row.email,
         password: row.password,
