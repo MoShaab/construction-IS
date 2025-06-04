@@ -20,8 +20,8 @@ import { Textarea } from "@/components/ui/textarea";
 const FormSchema: z.ZodType<{
   name: string;
   description: string;
-  startDate: string;
-  endDate: string;
+  startDate: Date;
+  endDate: Date;
 }> = z.object({
     name: z.string().min(1, { message: "Project name is required." }),
     description: z.string().min(1, { message: "Description is required." }),
