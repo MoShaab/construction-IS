@@ -51,6 +51,8 @@ const suppliers = [
     {
       id: 1,
       name: "BuildTech Solutions",
+      phone: "0747474747",
+      address: "nairoibi, kipand road",
       category: "Construction Materials",
       rating: 4.8,
       status: "Active",
@@ -59,6 +61,8 @@ const suppliers = [
     {
       id: 2,
       name: "Safety First Equipment",
+      phone: "0747487847",
+      address: "mombasa, kipand road",
       category: "Safety Gear",
       rating: 4.5,
       status: "Active",
@@ -67,6 +71,8 @@ const suppliers = [
     {
       id: 3,
       name: "Steel Masters Inc",
+      phone: "0788474747",
+      address: "thika, kipand road",
       category: "Raw Materials",
       rating: 4.2,
       status: "Active",
@@ -75,6 +81,8 @@ const suppliers = [
     {
       id: 4,
       name: "Power Tools Pro",
+      phone: "0799474747",
+      address: "nairoibi, westlands road",
       category: "Equipment",
       rating: 4.6,
       status: "Under Review",
