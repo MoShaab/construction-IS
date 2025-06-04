@@ -52,8 +52,8 @@ async function seedSuppliers() {
   const insertedSuppliers = await Promise.all(
     suppliers.map(
       (supplier) => client.sql`
-        INSERT INTO suppliers (id, name, category, contact, location)
-        VALUES (${supplier.id}, ${supplier.name}, ${supplier.category}, ${supplier.contact}, ${supplier.location})
+        INSERT INTO suppliers (id, name, category, phone, location)
+        VALUES (${supplier.id}, ${supplier.name}, ${supplier.category}, ${supplier.phone}, ${supplier.address})
         ON CONFLICT (id) DO NOTHING;
       `
     )
