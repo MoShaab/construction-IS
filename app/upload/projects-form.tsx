@@ -20,8 +20,8 @@ import { Textarea } from "@/components/ui/textarea";
 const FormSchema: z.ZodType<{
   name: string;
   description: string;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
 }> = z.object({
     name: z.string().min(1, { message: "Project name is required." }),
     description: z.string().min(1, { message: "Description is required." }),
@@ -41,6 +41,7 @@ const FormSchema: z.ZodType<{
     const endDate = new Date(data.endDate);
     if (endDate <= startDate) {
       ctx.addIssue({
+        code: z.ZodIssueCode.custom,
         path: ["endDate"],
         message: "End date must be after start date.",
       });
