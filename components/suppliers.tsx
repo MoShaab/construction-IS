@@ -64,7 +64,7 @@ export default function Suppliers({
                         {supplier.status}
                       </span>
                     </td>
-                    <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{new Date(supplier.lastDelivery).toLocaleDateString()}</td>
+                    <td className="px-4 py-4 whitespace-nowrap text-sm text-gray-500">{new Date(supplier.last_delivery).toLocaleDateString()}</td>
                     <td className="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <Button variant="ghost" className="text-blue-600 hover:text-blue-900">View Details</Button>
                     </td>

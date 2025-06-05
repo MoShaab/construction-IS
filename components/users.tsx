@@ -67,7 +67,7 @@ export default function Users({
                         {user.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{new Date (user.lastActive).toLocaleDateString()}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{new Date (user.last_active).toLocaleDateString()}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                       <Button variant="ghost" className="text-blue-600 hover:text-blue-900">Edit</Button>
                     </td>

@@ -1,4 +1,5 @@
 import { sql } from '@vercel/postgres';
+import { resolveObjectURL } from 'buffer';
 import { InventoryItem, Project, Supplier, User } from './definitions';
 
 export async function fetchAllInventory():  Promise<InventoryItem[]>{
@@ -10,7 +11,7 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
       const result = await sql`SELECT * FROM inventory_items
     
       `;
-      const inventory: InventoryItem[] = result.rows.map((row:InventoryItem)=> ({
+      const inventory: InventoryItem[] = result.rows.map((row)=> ({
         id: row.id,
         name: row.name,
         quantity: row.quantity,
@@ -40,7 +41,7 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
   
       // Return the suppliers directly
 
-          const suppliers: Supplier[] = result.rows.map((row:Supplier) => ({
+          const suppliers: Supplier[] = result.rows.map((row) => ({
       id: row.id,
       name: row.name,
       category: row.category,
@@ -49,7 +50,7 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
       address: row.address,
       rating: row.rating,
       status: row.status,
-      lastDelivery: row.last_delivery,
+      last_delivery: row.last_delivery,
     }));
 
     return suppliers;
@@ -69,13 +70,13 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
       const result = await sql`SELECT * FROM projects
     
       `;
-      const projects: Project[] = result.rows.map((row: Project) => ({
+      const projects: Project[] = result.rows.map((row) => ({
         id: row.id,
         name: row.name,
         description: row.description,
        
-        startDate: row.start_date,
-        endDate: row.end_date,
+        start_date: row.start_date,
+        end_date: row.end_date,
       }));
   
       return projects;
@@ -100,11 +101,12 @@ export async function fetchAllInventory():  Promise<InventoryItem[]>{
       `;
   
       // Return the users directly
-      const users: User[] = result.rows.map((row: User) => ({
+      const users: User[] = result.rows.map((row) => ({
         id: row.id,
         name: row.name,
+        status: row.status,
         role: row.role,
-        lastActive: row.last_active,
+        last_active: row.last_active,
         email: row.email,
         password: row.password,
         

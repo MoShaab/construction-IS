@@ -4,6 +4,7 @@ export type User = {
   role: string; // E.g., "Admin", "User", "Manager"
   email: string;
   password: string; // Encrypted before storage
+  status: string;
   last_active: Date;
 };
 

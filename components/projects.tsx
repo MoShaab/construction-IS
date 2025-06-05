@@ -61,8 +61,8 @@ export default function Projects({
 
       <div className="grid grid-cols-1 gap-4 sm:gap-6">
         {projects.map((project) => {
-          const startDate = new Date(project.startDate)
-          const endDate = new Date(project.endDate)
+          const startDate = new Date(project.start_date)
+          const endDate = new Date(project.end_date)
           const progress = calculateProgress(startDate, endDate)
           const status = getStatusFromProgress(progress)
           

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import NavLinks from '@/components/ui/nav-links';
-import AcmeLogo from '@/app/ui/acme-logo';
+import AcmeLogo from '@/components/ui/acme-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
 import { signOut } from '@/auth';
  
