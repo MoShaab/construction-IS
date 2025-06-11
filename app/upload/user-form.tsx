@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { NewUser } from "@/lib/actions";
 
 const FormSchema = z.object({
   name: z.string().min(1, { message: "Name is required." }),
@@ -38,22 +39,22 @@ export function UserForm() {
     },
   });
 
-  function onSubmit(data: User) {
-    toast({
-      title: "User Added",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
-  }
+  // function onSubmit(data: User) {
+  //   toast({
+  //     title: "User Added",
+  //     description: (
+  //       <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+  //         <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+  //       </pre>
+  //     ),
+  //   });
+  // }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          action = {NewUser}
           className="w-full max-w-lg space-y-6 p-6 bg-white shadow-lg rounded-lg"
         >
           <h1 className="text-2xl font-bold text-gray-800">Add New User</h1>
